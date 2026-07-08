@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { ThemeContext } from "../Contexts/ThemeContext.jsx";
 function Header({ theme }) {
-  const [Dark, setDark] = theme;
+  const [Dark, setDark] = useContext(ThemeContext)
   const handlehangeTheme = () => {
     setDark(!Dark);
     localStorage.setItem("theme", JSON.stringify(!Dark));

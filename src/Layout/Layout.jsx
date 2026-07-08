@@ -1,20 +1,14 @@
 import React, { useState } from "react";
 import Header from "../Components/Header";
 import { Outlet } from "react-router-dom";
+import { ThemeProvider } from "../Contexts/ThemeContext.jsx";
 
 function Layout() {
-  const [Dark, setDark] = useState(JSON.parse(localStorage.getItem('theme')));
-  const body = document.querySelector("body");
-  if (Dark) {
-    body.classList.add("dark");
-  } else {
-    body.classList.remove("dark");
-  }
   return (
-    <>
-      <Header theme={[Dark, setDark]} />
-      <Outlet context={[Dark, setDark]}/>
-    </>
+    <ThemeProvider>
+      <Header />
+      <Outlet />
+    </ThemeProvider>
   );
 }
 export default Layout;
