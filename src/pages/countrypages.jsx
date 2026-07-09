@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { data } from "../util/data";
-import {  useParams } from "react-router-dom";
-import { ThemeContext } from "../Components";
+import { useParams } from "react-router-dom";
+import useTheme from "../hooks/useTheme";
 
 function Countrypages() {
-  const [Dark, setDark] = useContext(ThemeContext);
+  const [Dark, setDark] = useTheme();
   // const params = useParams();
   // console.log(params);
   const urlName = new URLSearchParams(location.search).get("name");
